@@ -211,3 +211,46 @@ Solo tome en cuenta algunos de los test, no me parecio necesarios algunos.
 # Archivos
 test/test_tipo_ficha.py
 test/test_checker.py
+# Modelo
+Claude
+
+# Promt
+Segun la clase board.py: (en esta parte inclui el codigo de board.py)
+Cuales serian los metodos que estan sin cubrir por las pruebas unitarias segun el reporte del coverage:
+----------------------------------------------------------------------
+Ran 30 tests in 0.002s
+OK
+Name                    Stmts   Miss  Cover   Missing
+-----------------------------------------------------
+cli\init.py             0      0   100%
+cli\cli.py                  0      0   100%
+core\init.py            0      0   100%
+core\backgammon.py          0      0   100%
+core\board.py              71     10    86%   22, 26, 78, 81, 89, 97-101
+core\checker.py             7      0   100%
+core\color_ficha.py         4      0   100%
+core\dice.py                0      0   100%
+core\player.py              0      0   100%
+pygame_ui\init.py       0      0   100%
+pygame_ui\pygame.py         0      0   100%
+-----------------------------------------------------
+TOTAL                      82     10    88%
+Wrote XML report to coverage.xml
+
+# Respesta
+Según el reporte de coverage, en el archivo core/board.py hay 10 líneas sin cubrir por las pruebas unitarias. Las líneas específicas son: 22, 26, 78, 81, 89, 97-101.
+Analizando tu código board.py, estas líneas corresponden a los siguientes métodos y casos:
+Métodos/casos sin cobertura:
+
+Línea 22: Parte del método __es_punto_valido() - probablemente el caso cuando el punto NO es válido
+Línea 26: Caso en agregar_ficha() cuando el punto no es válido (no se ejecuta el if)
+Línea 78: Parte del método quitar_ficha_contenedor() - probablemente el elif para fichas negras
+Línea 81: El return None final del método quitar_ficha_contenedor()
+Línea 89: Parte del método contar_fichas_contenedor() - probablemente el elif para fichas negras
+Líneas 97-101: El método completo tablero_esta_vacio()
+
+# Salida
+Cree los test necesarios para una mayor covertura del codigo y poder llegar al 90% que se considera segun el documento.
+
+# Archivos 
+test.board.py
