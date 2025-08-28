@@ -1,0 +1,10 @@
+[run]
+omit =
+    */venv/*
+    */tests/*
+    test_*.py
+    *_test.py
+    */test_*.py
+    Test_*  
+    */Test_*
+    **/Test_*
