@@ -1,4 +1,4 @@
-from core.color_ficha import ColorFicha
+from core.ColorFicha import ColorFicha
 
 class Checker:
     def __init__(self, color: ColorFicha):

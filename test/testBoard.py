@@ -1,7 +1,7 @@
 import unittest
-from core.board import Tablero
-from core.checker import Checker
-from core.color_ficha import ColorFicha
+from core.Board import Tablero
+from core.Checker import Checker
+from core.ColorFicha import ColorFicha
 
 class TestTablero(unittest.TestCase):
 

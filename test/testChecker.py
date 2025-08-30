@@ -1,7 +1,7 @@
 import unittest
-from core.checker import Checker
-from core.color_ficha import ColorFicha
-from test.test_tipo_ficha import ColorFicha
+from core.Checker import Checker
+from core.ColorFicha import ColorFicha
+from test.testTipoFicha import ColorFicha
 
 class TestChecker(unittest.TestCase):
 

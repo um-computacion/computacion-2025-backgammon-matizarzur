@@ -1,5 +1,5 @@
-from core.checker import Checker
-from core.color_ficha import ColorFicha
+from core.Checker import Checker
+from core.ColorFicha import ColorFicha
 class Tablero:
 
     def __init__(self):
