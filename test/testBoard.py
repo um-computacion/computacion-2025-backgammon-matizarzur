@@ -1,12 +1,12 @@
 import unittest
-from core.Board import Tablero
+from core.Board import Board
 from core.Checker import Checker
 from core.ColorFicha import ColorFicha
 
-class TestTablero(unittest.TestCase):
+class TestBoard(unittest.TestCase):
 
     def setUp(self):
-        self.tablero = Tablero()
+        self.tablero = Board()
         self.ficha_blanca = Checker(ColorFicha.BLANCA)
         self.ficha_negra = Checker(ColorFicha.NEGRA)
 
@@ -88,3 +88,63 @@ class TestTablero(unittest.TestCase):
         self.tablero.agregar_ficha(-1, ficha)
         self.tablero.agregar_ficha(24, ficha)
         self.assertTrue(self.tablero.tablero_esta_vacio())
+
+    def test_setter_puntos_valido(self):
+        nuevos_puntos = [[] for _ in range(24)]
+        nuevos_puntos[0].append(self.ficha_blanca)
+        self.tablero.puntos = nuevos_puntos
+        self.assertEqual(len(self.tablero.puntos), 24)
+        self.assertEqual(self.tablero.puntos[0][0].color, ColorFicha.BLANCA)
+        self.assertEqual(len(self.tablero.puntos[0]), 1)
+    
+    def test_setter_puntos_lista_invalida_longitud(self):
+        with self.assertRaises(ValueError) as context:
+            self.tablero.puntos = [[] for _ in range(23)]
+        self.assertEqual(str(context.exception), "Los nuevos puntos deben ser una lista de 24 elementos.")
+        
+    def test_setter_puntos_no_es_lista(self):
+        with self.assertRaises(ValueError) as context:
+            self.tablero.puntos = "no es una lista"
+        self.assertEqual(str(context.exception), "Los nuevos puntos deben ser una lista de 24 elementos.")
+        
+    def test_setter_contenedor_blancas_valido(self):
+        nuevo_contenedor = [self.ficha_blanca]
+        self.tablero.contenedor_blancas = nuevo_contenedor
+        self.assertEqual(self.tablero.contenedor_blancas, nuevo_contenedor)
+    
+    def test_setter_contenedor_negras_valido(self):
+        nuevas_fichas = [self.ficha_negra]
+        self.tablero.contenedor_negras = nuevas_fichas
+        self.assertEqual(len(self.tablero.contenedor_negras), 1)
+        self.assertEqual(self.tablero.contenedor_negras[0].color, ColorFicha.NEGRA)
+        
+    def test_setter_contenedor_negras_invalido(self):
+        with self.assertRaises(ValueError) as context:
+            self.tablero.contenedor_negras = 123
+        
+    def test_resetear_tablero(self):
+        self.tablero.agregar_ficha(0, self.ficha_blanca)
+        self.tablero.agregar_ficha(5, self.ficha_negra)
+        self.tablero.agregar_ficha_contenedor(self.ficha_blanca)
+        self.tablero.agregar_ficha_contenedor(self.ficha_negra)
+        #verifica que hayan fichas
+        self.assertFalse(self.tablero.tablero_esta_vacio())
+        self.assertFalse(self.tablero.contenedor_esta_vacio(ColorFicha.BLANCA))
+        self.assertFalse(self.tablero.contenedor_esta_vacio(ColorFicha.NEGRA))
+        #resetea
+        self.tablero.resetear_tablero()
+        self.assertTrue(self.tablero.tablero_esta_vacio())
+        self.assertTrue(self.tablero.contenedor_esta_vacio(ColorFicha.BLANCA))
+        self.assertTrue(self.tablero.contenedor_esta_vacio(ColorFicha.NEGRA))
+
+    def test_limpiar_contenedores(self):
+        self.tablero.agregar_ficha_contenedor(self.ficha_blanca)
+        self.tablero.agregar_ficha_contenedor(self.ficha_negra)
+        self.tablero.agregar_ficha_contenedor(Checker(ColorFicha.BLANCA))
+        
+        self.assertFalse(self.tablero.contenedor_esta_vacio(ColorFicha.BLANCA))
+        self.assertFalse(self.tablero.contenedor_esta_vacio(ColorFicha.NEGRA))
+        self.tablero.limpiar_contenedores()
+        self.assertTrue(self.tablero.contenedor_esta_vacio(ColorFicha.BLANCA))
+        self.assertTrue(self.tablero.contenedor_esta_vacio(ColorFicha.NEGRA))
+        
