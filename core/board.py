@@ -1,6 +1,6 @@
 from core.Checker import Checker
 from core.ColorFicha import ColorFicha
-class Tablero:
+class Board:
 
     def __init__(self):
 
@@ -14,14 +14,35 @@ class Tablero:
     @property
     def puntos(self):
         return self.__puntos
+    
+    @puntos.setter
+    def puntos(self, nuevos_puntos):
+        if isinstance(nuevos_puntos, list) and len(nuevos_puntos) == 24:
+            self.__puntos = nuevos_puntos
+        else:
+            raise ValueError("Los nuevos puntos deben ser una lista de 24 elementos.")
 
     @property
     def contenedor_blancas(self):
         return self.__contenedor_blancas
+    
+    @contenedor_blancas.setter
+    def contenedor_blancas(self, nuevo_contenedor):
+        if isinstance(nuevo_contenedor, list):
+            self.__contenedor_blancas = nuevo_contenedor
+        else:
+            raise ValueError("El nuevo contenedor debe ser una lista.")
 
     @property
     def contenedor_negras(self):
         return self.__contenedor_negras
+    
+    @contenedor_negras.setter
+    def contenedor_negras(self, nuevo_contenedor):
+        if isinstance(nuevo_contenedor, list):
+            self.__contenedor_negras = nuevo_contenedor
+        else:
+            raise ValueError("El nuevo contenedor debe ser una lista.")
 
     def __es_punto_valido(self, punto):
         """Verificar si un punto está dentro del rango válido (0-23)."""
@@ -101,3 +122,12 @@ class Tablero:
     def tablero_esta_vacio(self):
         """Verificar si el tablero está completamente vacío."""
         return all(len(punto) == 0 for punto in self.__puntos)
+    
+    def resetear_tablero(self):
+        self.__puntos = [[] for _ in range(24)]
+        self.__contenedor_blancas = []
+        self.__contenedor_negras = []
+    
+    def limpiar_contenedores(self):
+        self.__contenedor_blancas = []
+        self.__contenedor_negras = []

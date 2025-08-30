@@ -17,3 +17,7 @@ Se añadio la clase color_ficha utilizando enums (enumeraciones), que son un con
 
 ## [25-08-2025] V 0.0.3
 Se agrego el archivo .coveragerc y se configuro de acuerdo al proyecto.
+
+## [30-08-2025] V 0.0.4
+Se corrigieron los nombres de las clases. Se continuo trabajando sobre la clase Board, se agregaron metodos, verificaciones y setters. Ademas se añadieron test para una mayor covertura de codigo (tambien debido a la creacion de nuevos metodos se añadieron tests).
+Se deja el coverage en un 92% comparado al 89% que se tenian antes de los arreglos.
