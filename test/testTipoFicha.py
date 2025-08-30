@@ -1,5 +1,5 @@
 import unittest
-from core.color_ficha import ColorFicha
+from core.ColorFicha import ColorFicha
 
 class TestColorFicha(unittest.TestCase):
 
