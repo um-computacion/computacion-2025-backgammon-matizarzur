@@ -21,3 +21,7 @@ Se agrego el archivo .coveragerc y se configuro de acuerdo al proyecto.
 ## [30-08-2025] V 0.0.4
 Se corrigieron los nombres de las clases. Se continuo trabajando sobre la clase Board, se agregaron metodos, verificaciones y setters. Ademas se añadieron test para una mayor covertura de codigo (tambien debido a la creacion de nuevos metodos se añadieron tests).
 Se deja el coverage en un 92% comparado al 89% que se tenian antes de los arreglos.
+
+## [30-08-2025] V 0.0.5
+Se agrega la clase dice segun lo visto en clase, ademas se agregan algunos metodos para una mejor funcionalidad.
+Se crean test para la clase dice.
