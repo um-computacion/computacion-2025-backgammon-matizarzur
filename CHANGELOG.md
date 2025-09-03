@@ -25,3 +25,4 @@ Se deja el coverage en un 92% comparado al 89% que se tenian antes de los arregl
 ## [30-08-2025] V 0.0.5
 Se agrega la clase dice segun lo visto en clase, ademas se agregan algunos metodos para una mejor funcionalidad.
 Se crean test para la clase dice.
+Se corrigio la clase para utilizar getters y setter, ademas tambien se corrigio la encapsulacion. Tambien se cambio la logica de dobles porque era un poco confusa.
