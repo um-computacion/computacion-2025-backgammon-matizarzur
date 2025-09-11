@@ -26,3 +26,7 @@ Se deja el coverage en un 92% comparado al 89% que se tenian antes de los arregl
 Se agrega la clase dice segun lo visto en clase, ademas se agregan algunos metodos para una mejor funcionalidad.
 Se crean test para la clase dice.
 Se corrigio la clase para utilizar getters y setter, ademas tambien se corrigio la encapsulacion. Tambien se cambio la logica de dobles porque era un poco confusa.
+
+## [30-08-2025] V 0.0.5
+Se comenzo con la clase BackGammon Game.Se agregaron atributos principales:board, dice, jugador_actual,estado_juego, ganador, barras de fichas capturadas y tiradas iniciales. Se implementaron getters y setter con validaciones para cada atributo.Se definieron los métodos principales del flujo de juego como placeholders (configuración, tiradas, movimientos, validaciones, cambio de turno, verificación de ganador, etc)
+Estructura preparada para avanzar con la lógica del juego en versiones futuras.
