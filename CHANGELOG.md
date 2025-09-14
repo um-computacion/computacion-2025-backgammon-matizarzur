@@ -33,3 +33,7 @@ Estructura preparada para avanzar con la lógica del juego en versiones futuras.
 
 ## [14-09-2025] V 0.0.7
 Se corrige la clase board con un metodo adicional, tambien se agregan test necesarios para una mayor cobertura del codigo. Se elimina lo realizado en la clase Backgammon game porque se retomara despues de haber corregido algunas clases y haber añadido la clase player.
+## [14-09-2025] V 0.0.8
+Se elimina la carpeta CircleCI debido a que no se trabajara segun lo visto en la clase virtual. 
+Se agregan las librerias necesarias
+Se añaden los archivos y configuraciones necesarias para su funcionamiento
