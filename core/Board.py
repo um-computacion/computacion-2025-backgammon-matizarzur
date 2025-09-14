@@ -131,3 +131,25 @@ class Board:
     def limpiar_contenedores(self):
         self.__contenedor_blancas = []
         self.__contenedor_negras = []
+    
+    def inicializar_tablero(self):
+        self.resetear_tablero()
+        self.limpiar_contenedores()
+        
+        for _ in range(2):
+            self.agregar_ficha(0, Checker(ColorFicha.NEGRA))
+        for _ in range(5):
+            self.agregar_ficha(11, Checker(ColorFicha.NEGRA))
+        for _ in range(3):
+            self.agregar_ficha(16, Checker(ColorFicha.NEGRA))
+        for _ in range(5):
+            self.agregar_ficha(18, Checker(ColorFicha.NEGRA))
+        
+        for _ in range(2):
+            self.agregar_ficha(23, Checker(ColorFicha.BLANCA))
+        for _ in range(5):
+            self.agregar_ficha(12, Checker(ColorFicha.BLANCA))
+        for _ in range(3):
+            self.agregar_ficha(7, Checker(ColorFicha.BLANCA))
+        for _ in range(5):
+            self.agregar_ficha(5, Checker(ColorFicha.BLANCA))
