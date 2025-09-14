@@ -1,4 +1,10 @@
 # Modelo / herramienta usada
+# Prompt
+# Respuesta
+# Salida
+# Archivos
+
+# Modelo / herramienta usada
 Claude
 # Prompt
 Estoy haciendo un proyecto de backgammon, esta es mi clase checker, necesito hacer test. En base al codigo de tipo_ficha y checker:
@@ -254,3 +260,52 @@ Cree los test necesarios para una mayor covertura del codigo y poder llegar al 9
 
 # Archivos 
 test.board.py
+
+# Modelo / herramienta usada
+Claude
+# Prompt
+Dada mi clase 
+Dice.py:(Clase)
+Necesito mejorar la covertura del codigo de los tests
+Hasta ahora tengo estos tests (test actuales), necesito que me des tests adicionales para una mayor covertura de la clase
+# Respuesta
+Analizando tu código y tests actuales, veo algunas áreas donde puedes mejorar la cobertura. Aquí están los tests adicionales que te sugiero:Tests Adicionales para DiceCódigo     def test_use_move_no_last_roll(self):
+        """Test use_move cuando no hay tirada previa (last_roll es None)"""
+        dice = Dice()
+        result = dice.use_move(3)
+        self.assertFalse(result)
+        self.assertIsNone(dice.last_roll)
+
+Estos tests adicionales cubren las siguientes áreas que faltaban en tu cobertura:
+1. Casos del método use_move():
+
+Cuando last_roll es None (línea que retorna False al inicio)
+Cuando encuentra el movimiento y lo remueve exitosamente
+Uso secuencial de movimientos hasta agotarlos
+Uso con dobles
+
+2. Casos edge del setter last_roll:
+
+Diferentes tipos inválidos (string, int, dict) además de lista
+
+3. Comportamiento después de usar movimientos:
+
+Cómo is_double() se comporta después de usar algunos movimientos
+El comportamiento de get_roll_values() después de uso parcial
+
+4. Casos edge adicionales:
+
+Tupla vacía en last_roll
+Valores mínimos y máximos en los rolls
+
+5. Cobertura completa del método roll():
+
+Casos específicos con valores mínimos (1,1) y máximos (6,6)
+Diferentes combinaciones de no-dobles
+
+Nota importante: Hay un posible bug en tu método get_roll_values() cuando last_roll tiene solo un elemento después de usar movimientos. Podrías querer revisar ese caso específicamente.
+Estos tests te ayudarán a alcanzar una cobertura mucho más completa de tu clase Dice.
+# Salida
+Se tomaron los test sugeridos por la IA para mejorar el coverage de la clase
+# Archivos
+testDice.py
