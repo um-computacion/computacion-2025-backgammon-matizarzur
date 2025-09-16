@@ -1,4 +1,10 @@
 # Modelo / herramienta usada
+# Prompt
+# Respuesta
+# Salida
+# Archivos
+
+# Modelo / herramienta usada
 Claude
 # Prompt
 Necesito que me ayudes a crear un archivo .coveragerc para que ignore los test y ciertas cosas que tengo en un proyecto en el cual estoy trabajando. Necesito que me expliques como se ignoran carpetas y archivos dentro de carpetas.
@@ -59,3 +65,32 @@ Revisa regularmente: Ajusta los patrones según evolucione tu proyecto.
 En base a esta respuesta arme el archivo para ignorar ciertas cosas al momento de hacer coverage. 
 # Archivos
 .coveragerc
+
+# Modelo / herramienta usada
+Claude
+# Prompt
+A continuacion te voy a pasar mi reporte de pilint_report.txt que me da una calificacion de mi codigo, necesito que me digas donde puedo corregir el codigo y si es necesario cambiar por completo alguna de mis clases.
+# Respuesta
+No necesitas cambiar por completo ninguna clase, pero sí hacer mejoras importantes:
+
+Problemas más críticos:
+
+Eliminar imports no utilizados en BackgammonGame.py
+Agregar más métodos a las clases BackgammonGame y Checker
+Dividir las clases de test gigantes (testBoard y testDice)
+
+
+Correcciones rápidas que subirán mucho tu puntuación:
+
+Limpiar espacios en blanco al final de líneas
+Agregar docstrings básicos
+Corregir orden de imports
+Renombrar archivos a snake_case
+
+
+Tu estructura general está bien, solo necesita pulirse y documentarse mejor.
+# Salida
+Esta conversacion me sirve para darme cuenta en donde debo mejorar el codigo para una mejor valoracion del codigo.
+# Archivos
+Board
+testBoard
