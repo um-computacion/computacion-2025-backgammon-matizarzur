@@ -4,6 +4,8 @@
 ![Python](https://img.shields.io/badge/python-3.10-blue)
 ![Version](https://img.shields.io/badge/version-0.0.9-green)
 ![License](https://img.shields.io/badge/license-MIT-blue)
+![Pylint](https://img.shields.io/badge/pylint-6.26%2F10-yellow)
+![Coverage](https://img.shields.io/badge/coverage-0%25-red)
 
 ## Información del Estudiante
 - **Nombre:** Matías Zarzur
@@ -14,16 +16,16 @@
 Implementación completa del juego Backgammon desarrollado en Python como proyecto académico. El juego incluye todas las reglas tradicionales del Backgammon con interfaz de línea de comandos, sistema de colores, manejo de dados y validación completa de movimientos.
 
 ## Características
-(- 🎲 Sistema completo de dados con lógica de dobles)EN PROGRESO
-(- 🎯 Validación completa de movimientos según reglas oficiales)EN PROGRESO
-(- 🎨 Interfaz colorida con sistema de colores personalizado)EN PROGRESO
-(- 👥 Sistema de jugadores con turnos alternados)EN PROGRESO
-(- 🏁 Detección automática de condiciones de victoria)EN PROGRESO
-(- ✅ Tests exhaustivos para todas las funcionalidades)EN PROGRESO
+(- 🎲 Sistema completo de dados con lógica de dobles)EN PROGRESO 
+(- 🎯 Validación completa de movimientos según reglas oficiales)EN PROGRESO 
+(- 🎨 Interfaz colorida con sistema de colores personalizado)EN PROGRESO 
+(- 👥 Sistema de jugadores con turnos alternados)EN PROGRESO 
+(- 🏁 Detección automática de condiciones de victoria)EN PROGRESO 
+(- ✅ Tests exhaustivos para todas las funcionalidades)EN PROGRESO 
 (-📊 Análisis de cobertura de código superior al 90%)EN PROGRESO
-- 🔍 Análisis estático con Pylint
-- 🤖 CI/CD automatizado con GitHub Actions
-- 📝 Reportes automatizados de calidad de código
+🔍 Análisis estático con Pylint
+🤖 CI/CD automatizado con GitHub Actions
+📝 Reportes automatizados de calidad de código
 
 ## Estructura del Proyecto
 ```
@@ -94,6 +96,18 @@ coverage run -m unittest; coverage report -m; coverage xml
 coverage run -m unittest && coverage report -m && coverage xml
 
 ```
+
+## Reportes de Calidad
+Los reportes automatizados se generan en cada push y se encuentran en:
+- 📊 **Coverage Report**: `coverage_report.txt`
+- 🔍 **Pylint Analysis**: `pylint_report.txt` 
+- 📋 **Combined Report**: `REPORTS.md`
+
+**Estado actual:**
+- **Pylint Score**: 
+- **Coverage**: 
+
+Para ver los reportes más recientes, consulta el archivo `REPORTS.md` que se actualiza automáticamente con cada CI build.
 
 ## Estado del Proyecto
 Este proyecto forma parte de las actividades académicas del ciclo lectivo 2025 para la carrera de Ingeniería en Informática, de la Universidad de Mendoza
