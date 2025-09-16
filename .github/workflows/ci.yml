@@ -108,21 +108,30 @@ jobs:
           PYLINT_COLOR="${PYLINT_COLOR:-red}"
           COVERAGE_COLOR="${COVERAGE_COLOR:-red}"
           
-          # Crear badges dinámicos
-          CI_BADGE="![CI Status](https://github.com/um-computacion/computacion-2025-backgammon-matiaszarzur/actions/workflows/ci.yml/badge.svg)"
-          PYTHON_BADGE="![Python](https://img.shields.io/badge/python-3.10-blue)"
-          VERSION_BADGE="![Version](https://img.shields.io/badge/version-0.0.9-green)"
-          LICENSE_BADGE="![License](https://img.shields.io/badge/license-MIT-blue)"
-          PYLINT_BADGE="![Pylint](https://img.shields.io/badge/pylint-${PYLINT_SCORE}%2F10-${PYLINT_COLOR})"
-          COVERAGE_BADGE="![Coverage](https://img.shields.io/badge/coverage-${COVERAGE_PERCENT}%25-${COVERAGE_COLOR})"
+          # Crear el bloque completo de badges
+          BADGES_BLOCK="![CI Status](https://github.com/um-computacion/computacion-2025-backgammon-matiaszarzur/actions/workflows/ci.yml/badge.svg)
+![Python](https://img.shields.io/badge/python-3.10-blue)
+![Version](https://img.shields.io/badge/version-0.0.9-green)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Pylint](https://img.shields.io/badge/pylint-${PYLINT_SCORE}%2F10-${PYLINT_COLOR})
+![Coverage](https://img.shields.io/badge/coverage-${COVERAGE_PERCENT}%25-${COVERAGE_COLOR})"
           
-          # Actualizar README.md
-          sed -i "s|!\[CI Status\].*|$CI_BADGE|g" README.md
-          sed -i "s|!\[Python\].*|$PYTHON_BADGE|g" README.md
-          sed -i "s|!\[Version\].*|$VERSION_BADGE|g" README.md
-          sed -i "s|!\[License\].*|$LICENSE_BADGE|g" README.md
-          sed -i "s|!\[Pylint\].*|$PYLINT_BADGE|g" README.md
-          sed -i "s|!\[Coverage\].*|$COVERAGE_BADGE|g" README.md
+          # Usar Python para actualizar el README de forma más robusta
+          python << EOF
+import re
+
+with open('README.md', 'r') as f:
+    content = f.read()
+
+# Reemplazar todo el bloque de badges (desde ![CI Status] hasta ![Coverage])
+badges_pattern = r'!\[CI Status\].*?!\[Coverage\][^\n]*'
+new_badges = """$BADGES_BLOCK"""
+
+updated_content = re.sub(badges_pattern, new_badges, content, flags=re.DOTALL)
+
+with open('README.md', 'w') as f:
+    f.write(updated_content)
+EOF
           
           echo "README updated with new metrics:"
           echo "Pylint: $PYLINT_SCORE/10"

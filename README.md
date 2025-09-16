@@ -1,10 +1,13 @@
 # Backgammon - Matías Zarzur
 
 ![CI Status](https://github.com/um-computacion/computacion-2025-backgammon-matiaszarzur/actions/workflows/ci.yml/badge.svg)
+
 ![Python](https://img.shields.io/badge/python-3.10-blue)
-![Version](https://img.shields.io/badge/version-0.0.9-green)
-![License](https://img.shields.io/badge/license-MIT-blue)
+
+![Version](https://img.shields.io/badge/version-x.x.x-green) #actualizar version final
+
 ![Pylint](https://img.shields.io/badge/pylint-6.26%2F10-yellow)
+
 ![Coverage](https://img.shields.io/badge/coverage-0%25-red)
 
 ## Información del Estudiante
