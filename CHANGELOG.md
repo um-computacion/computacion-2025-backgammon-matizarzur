@@ -40,3 +40,5 @@ Se añaden los archivos y configuraciones necesarias para su funcionamiento
 
 ## [15-09-2025] V 0.0.9
 Se cambia el codigo dentro de /.github/workflows/ci.yml para una mejora en el aspecto de los tests, analisis de los directorios, mejor debugging y demas.
+## [15-09-2025] V 0.1.0
+Se agregan budgets en el README.md para que se muestre la informacion tipica del proyecto.
