@@ -37,3 +37,6 @@ Se corrige la clase board con un metodo adicional, tambien se agregan test neces
 Se elimina la carpeta CircleCI debido a que no se trabajara segun lo visto en la clase virtual. 
 Se agregan las librerias necesarias
 Se añaden los archivos y configuraciones necesarias para su funcionamiento
+
+## [15-09-2025] V 0.0.9
+Se cambia el codigo dentro de /.github/workflows/ci.yml para una mejora en el aspecto de los tests, analisis de los directorios, mejor debugging y demas.
