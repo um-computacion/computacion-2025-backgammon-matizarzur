@@ -1,15 +1,28 @@
+"""Módulo del tablero de backgammon.
+
+Este módulo contiene la clase Board que representa el tablero de backgammon
+con sus 24 puntos y los contenedores para fichas capturadas.
+"""
 from core.Checker import Checker
 from core.ColorFicha import ColorFicha
 class Board:
+    """Clase que representa el tablero de backgammon.
+    El tablero mantiene el estado de todas las fichas en los puntos,
+    así como las fichas capturadas en los contenedores (bar).
 
+    Attributes:
+        puntos (list): Lista de 24 listas, cada una representa un punto
+        contenedor_blancas (list): Fichas blancas capturadas  
+        contenedor_negras (list): Fichas negras capturadas
+    """
     def __init__(self):
 
         self.__puntos = []
-        for i in range(24):
-            self.__puntos.append([])  
+        for _ in range(24):
+            self.__puntos.append([])
             
-        self.__contenedor_blancas = [] 
-        self.__contenedor_negras = []  
+        self.__contenedor_blancas = []
+        self.__contenedor_negras = []
 
     @property
     def puntos(self):
@@ -88,14 +101,14 @@ class Board:
         """Agregar una ficha al contenedor correspondiente según su color."""
         if ficha.color == ColorFicha.BLANCA:
             self.__contenedor_blancas.append(ficha)
-        elif ficha.color == ColorFicha.NEGRA:
+        if ficha.color == ColorFicha.NEGRA:
             self.__contenedor_negras.append(ficha)
 
     def quitar_ficha_contenedor(self, color):
         """Quitar una ficha del contenedor según el color."""
         if color == ColorFicha.BLANCA and len(self.__contenedor_blancas) > 0:
             return self.__contenedor_blancas.pop()
-        elif color == ColorFicha.NEGRA and len(self.__contenedor_negras) > 0:
+        if color == ColorFicha.NEGRA and len(self.__contenedor_negras) > 0:
             return self.__contenedor_negras.pop()
         return None
 
@@ -103,7 +116,7 @@ class Board:
         """Contar cuántas fichas hay en el contenedor de un color."""
         if color == ColorFicha.BLANCA:
             return len(self.__contenedor_blancas)
-        elif color == ColorFicha.NEGRA:
+        if color == ColorFicha.NEGRA:
             return len(self.__contenedor_negras)
         return 0
 
@@ -124,15 +137,18 @@ class Board:
         return all(len(punto) == 0 for punto in self.__puntos)
     
     def resetear_tablero(self):
+        """Restablecer el tablero a su estado inicial vacío."""
         self.__puntos = [[] for _ in range(24)]
         self.__contenedor_blancas = []
         self.__contenedor_negras = []
     
     def limpiar_contenedores(self):
+        """Limpiar ambos contenedores de fichas."""
         self.__contenedor_blancas = []
         self.__contenedor_negras = []
     
     def inicializar_tablero(self):
+        """Configurar el tablero con la disposición inicial de fichas."""
         self.resetear_tablero()
         self.limpiar_contenedores()
         
@@ -153,3 +169,4 @@ class Board:
             self.agregar_ficha(7, Checker(ColorFicha.BLANCA))
         for _ in range(5):
             self.agregar_ficha(5, Checker(ColorFicha.BLANCA))
+            

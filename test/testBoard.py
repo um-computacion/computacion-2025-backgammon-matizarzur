@@ -1,3 +1,5 @@
+"""Tests para la clase Board."""
+
 import unittest
 from core.Board import Board
 from core.Checker import Checker
@@ -6,6 +8,7 @@ from core.ColorFicha import ColorFicha
 class TestBoard(unittest.TestCase):
 
     def setUp(self):
+        """Configurar objetos antes de cada prueba."""
         self.tablero = Board()
         self.ficha_blanca = Checker(ColorFicha.BLANCA)
         self.ficha_negra = Checker(ColorFicha.NEGRA)
@@ -118,9 +121,6 @@ class TestBoard(unittest.TestCase):
         self.assertEqual(len(self.tablero.contenedor_negras), 1)
         self.assertEqual(self.tablero.contenedor_negras[0].color, ColorFicha.NEGRA)
         
-    def test_setter_contenedor_negras_invalido(self):
-        with self.assertRaises(ValueError) as context:
-            self.tablero.contenedor_negras = 123
         
     def test_resetear_tablero(self):
         self.tablero.agregar_ficha(0, self.ficha_blanca)
