@@ -5,6 +5,8 @@ con sus 24 puntos y los contenedores para fichas capturadas.
 """
 from core.Checker import Checker
 from core.ColorFicha import ColorFicha
+
+
 class Board:
     """Clase que representa el tablero de backgammon.
     El tablero mantiene el estado de todas las fichas en los puntos,
@@ -12,24 +14,27 @@ class Board:
 
     Attributes:
         puntos (list): Lista de 24 listas, cada una representa un punto
-        contenedor_blancas (list): Fichas blancas capturadas  
+        contenedor_blancas (list): Fichas blancas capturadas
         contenedor_negras (list): Fichas negras capturadas
     """
-    def __init__(self):
 
+    def __init__(self):
+        """Inicializar tablero vacío con 24 puntos."""
         self.__puntos = []
         for _ in range(24):
             self.__puntos.append([])
-            
+
         self.__contenedor_blancas = []
         self.__contenedor_negras = []
 
     @property
     def puntos(self):
+        """Obtener lista de puntos del tablero."""
         return self.__puntos
-    
+
     @puntos.setter
     def puntos(self, nuevos_puntos):
+        """Establecer nuevos puntos del tablero."""
         if isinstance(nuevos_puntos, list) and len(nuevos_puntos) == 24:
             self.__puntos = nuevos_puntos
         else:
@@ -37,10 +42,12 @@ class Board:
 
     @property
     def contenedor_blancas(self):
+        """Obtener contenedor de fichas blancas."""
         return self.__contenedor_blancas
-    
+
     @contenedor_blancas.setter
     def contenedor_blancas(self, nuevo_contenedor):
+        """Establecer nuevo contenedor de fichas blancas."""
         if isinstance(nuevo_contenedor, list):
             self.__contenedor_blancas = nuevo_contenedor
         else:
@@ -48,10 +55,12 @@ class Board:
 
     @property
     def contenedor_negras(self):
+        """Obtener contenedor de fichas negras."""
         return self.__contenedor_negras
-    
+
     @contenedor_negras.setter
     def contenedor_negras(self, nuevo_contenedor):
+        """Establecer nuevo contenedor de fichas negras."""
         if isinstance(nuevo_contenedor, list):
             self.__contenedor_negras = nuevo_contenedor
         else:
@@ -135,23 +144,23 @@ class Board:
     def tablero_esta_vacio(self):
         """Verificar si el tablero está completamente vacío."""
         return all(len(punto) == 0 for punto in self.__puntos)
-    
+
     def resetear_tablero(self):
         """Restablecer el tablero a su estado inicial vacío."""
         self.__puntos = [[] for _ in range(24)]
         self.__contenedor_blancas = []
         self.__contenedor_negras = []
-    
+
     def limpiar_contenedores(self):
         """Limpiar ambos contenedores de fichas."""
         self.__contenedor_blancas = []
         self.__contenedor_negras = []
-    
+
     def inicializar_tablero(self):
         """Configurar el tablero con la disposición inicial de fichas."""
         self.resetear_tablero()
         self.limpiar_contenedores()
-        
+
         for _ in range(2):
             self.agregar_ficha(0, Checker(ColorFicha.NEGRA))
         for _ in range(5):
@@ -160,7 +169,7 @@ class Board:
             self.agregar_ficha(16, Checker(ColorFicha.NEGRA))
         for _ in range(5):
             self.agregar_ficha(18, Checker(ColorFicha.NEGRA))
-        
+
         for _ in range(2):
             self.agregar_ficha(23, Checker(ColorFicha.BLANCA))
         for _ in range(5):
@@ -169,4 +178,3 @@ class Board:
             self.agregar_ficha(7, Checker(ColorFicha.BLANCA))
         for _ in range(5):
             self.agregar_ficha(5, Checker(ColorFicha.BLANCA))
-            
